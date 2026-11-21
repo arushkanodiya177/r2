@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
+  <title>Éclat | Premium Dining & Management</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- Link to style.css -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== APP CONTAINER ===== -->
+  <div id="app">
+    <!-- ===== TOAST / NOTIFICATION CONTAINER ===== -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- ===== LANDING PAGE ===== -->
+    <div id="landing-page" class="page active">
+      <!-- Header / Nav -->
+      <header class="landing-header glass-panel">
+        <div class="logo">
+          <span class="logo-icon">✦</span>
+          <span class="logo-text">Éclat</span>
+        </div>
+        <nav class="main-nav">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#menu">Menu</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn btn-outline login-trigger" data-role="customer">
+            <i data-lucide="user"></i> Customer Login
+          </button>
+          <button class="btn btn-gold login-trigger" data-role="admin">
+            <i data-lucide="crown"></i> Admin
+          </button>
+          <button class="btn btn-gold login-trigger" data-role="kitchen">
+            <i data-lucide="chef-hat"></i> Kitchen
+          </button>
+        </div>
+        <button class="mobile-nav-toggle" id="mobileNavToggle"><i data-lucide="menu"></i></button>
+      </header>
+
+      <!-- Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Experience Culinary <span class="gold-text">Perfection</span></h1>
+          <p class="hero-subtitle">Indulge in a symphony of flavors crafted by our master chefs, where every dish tells a story of passion and precision.</p>
+          <div class="hero-cta">
+            <a href="#menu" class="btn btn-gold btn-lg">Explore Menu</a>
+            <button class="btn btn-outline btn-lg book-table-trigger">Book a Table</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section about-section">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-text">
+              <h2 class="section-title">About <span class="gold-text">Éclat</span></h2>
+              <p class="section-desc">A sanctuary of taste and elegance. Since 2010, Éclat has redefined fine dining with a menu that celebrates seasonal ingredients, innovative techniques, and timeless hospitality. Our chefs source locally, cook with soul, and plate with artistry.</p>
+              <p class="section-desc">From intimate dinners to grand celebrations, every moment at Éclat is designed to be unforgettable.</p>
+              <div class="about-stats">
+                <div><span class="stat-number">15+</span><span class="stat-label">Years of Excellence</span></div>
+                <div><span class="stat-number">50k+</span><span class="stat-label">Happy Guests</span></div>
+                <div><span class="stat-number">25</span><span class="stat-label">Award-Winning Dishes</span></div>
+              </div>
+            </div>
+            <div class="about-image">
+              <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Chef plating dish" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular Dishes / Chef's Recommendations -->
+      <section id="menu" class="section menu-section">
+        <div class="container">
+          <h2 class="section-title">Chef’s <span class="gold-text">Recommendations</span></h2>
+          <div class="menu-grid" id="landingMenuGrid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section id="gallery" class="section gallery-section">
+        <div class="container">
+          <h2 class="section-title">Our <span class="gold-text">Gallery</span></h2>
+          <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Restaurant interior" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=600&q=80" alt="Gourmet dish" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Wine selection" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80" alt="Dining area" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Fresh salad" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Pizza" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact / Hours -->
+      <section id="contact" class="section contact-section">
+        <div class="container contact-grid">
+          <div class="contact-info">
+            <h2 class="section-title">Visit <span class="gold-text">Us</span></h2>
+            <p><i data-lucide="map-pin"></i> 12 Rue de la Paix, 75002 Paris, France</p>
+            <p><i data-lucide="phone"></i> +33 1 42 60 38 30</p>
+            <p><i data-lucide="mail"></i> bonjour@eclat-restaurant.com</p>
+            <h3 class="hours-title">Opening Hours</h3>
+            <p>Mon–Thu: 12:00 – 22:30</p>
+            <p>Fri–Sat: 12:00 – 23:30</p>
+            <p>Sun: 12:00 – 21:00</p>
+          </div>
+          <div class="contact-map">
+            <div class="map-placeholder">
+              <i data-lucide="map"></i>
+              <span>Map View</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="landing-footer">
+        <div class="container footer-content">
+          <div class="footer-brand">
+            <span class="logo-icon">✦</span> Éclat
+          </div>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+          </div>
+          <p class="footer-copy">&copy; 2025 Éclat. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ===== LOGIN MODAL / PAGE ===== -->
+    <div id="login-page" class="page">
+      <div class="login-wrapper glass-panel">
+        <button class="close-login" id="closeLogin"><i data-lucide="x"></i></button>
+        <div class="login-header">
+          <h2 id="loginTitle">Customer Login</h2>
+          <p id="loginSubtitle">Access your Éclat experience</p>
+        </div>
+        <!-- Login Form -->
+        <form id="loginForm" class="login-form">
+          <input type="hidden" id="loginRole" value="customer" />
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="••••••••" required />
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Log In</button>
+        </form>
+        <div class="login-footer">
+          <p id="registerPrompt">New customer? <a href="#" id="showRegister">Create an account</a></p>
+        </div>
+        <!-- Register Form (hidden by default) -->
+        <form id="registerForm" class="login-form hidden">
+          <input type="hidden" id="registerRole" value="customer" />
+          <div class="form-group">
+            <label for="regName">Full Name</label>
+            <input type="text" id="regName" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="regPassword">Password</label>
+            <input type="password" id="regPassword" placeholder="••••••••" required />
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Create Account</button>
+          <p class="login-footer-text">Already have an account? <a href="#" id="showLogin">Log in</a></p>
+        </form>
+        <p class="demo-note"><i data-lucide="info"></i> Demo system – no real payments or backend. For production, use secure server-side auth.</p>
+      </div>
+    </div>
+
+    <!-- ===== CUSTOMER DASHBOARD ===== -->
+    <div id="customer-dashboard" class="page dashboard-page">
+      <div class="dashboard-layout">
+        <aside class="sidebar glass-panel">
+          <div class="sidebar-brand"><span class="logo-icon">✦</span> Éclat</div>
+          <nav class="sidebar-nav">
+            <a href="#" class="active" data-customer-tab="home"><i data-lucide="home"></i> Home</a>
+            <a href="#" data-customer-tab="menu"><i data-lucide="utensils"></i> Menu</a>
+            <a href="#" data-customer-tab="cart"><i data-lucide="shopping-cart"></i> Cart <span id="cartBadge" class="badge">0</span></a>
+            <a href="#" data-customer-tab="orders"><i data-lucide="package"></i> Orders</a>
+            <a href="#" data-customer-tab="profile"><i data-lucide="user"></i> Profile</a>
+          </nav>
+          <button class="btn btn-outline logout-btn" id="customerLogout">Log out</button>
+        </aside>
+        <main class="dashboard-main">
+          <header class="dashboard-header glass-panel">
+            <div class="header-left">
+              <h2 id="customerGreeting">Welcome, Guest</h2>
+              <p id="customerDateTime"></p>
+            </div>
+            <div class="header-right">
+              <button class="icon-btn" id="customerNotificationBtn"><i data-lucide="bell"></i></button>
+            </div>
+          </header>
+
+          <!-- Customer Tab Content -->
+          <div id="customer-tab-content" class="tab-content">
+            <!-- Home / Welcome -->
+            <div class="customer-tab active" id="cust-tab-home">
+              <div class="welcome-cards">
+                <div class="card glass-panel">
+                  <h3>Recent Orders</h3>
+                  <div id="recentOrdersList" class="order-list"></div>
+                </div>
+                <div class="card glass-panel">
+                  <h3>Active Orders</h3>
+                  <div id="activeOrdersList" class="order-list"></div>
+                </div>
+                <div class="card glass-panel">
+                  <h3>Favourite Dishes</h3>
+                  <div id="favouriteDishesList" class="order-list"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Menu -->
+            <div class="customer-tab" id="cust-tab-menu">
+              <div class="menu-controls glass-panel">
+                <input type="text" id="dishSearch" placeholder="Search dishes..." />
+                <select id="categoryFilter">
+                  <option value="all">All Categories</option>
+                  <option value="starters">Starters</option>
+                  <option value="mains">Mains</option>
+                  <option value="desserts">Desserts</option>
+                  <option value="drinks">Drinks</option>
+                </select>
+              </div>
+              <div class="menu-grid" id="customerMenuGrid"></div>
+            </div>
+            <!-- Cart -->
+            <div class="customer-tab" id="cust-tab-cart">
+              <div class="cart-container glass-panel">
+                <h3>Your Cart</h3>
+                <div id="cartItemsList"></div>
+                <div class="cart-summary">
+                  <p>Total: <span id="cartTotal">$0.00</span></p>
+                  <div class="order-type-select">
+                    <label><input type="radio" name="orderType" value="dine-in" checked /> Dine-in</label>
+                    <label><input type="radio" name="orderType" value="takeaway" /> Takeaway</label>
+                    <label><input type="radio" name="orderType" value="delivery" /> Delivery</label>
+                  </div>
+                  <textarea id="specialInstructions" placeholder="Special instructions..."></textarea>
+                  <button class="btn btn-gold btn-block" id="placeOrderBtn">Place Order</button>
+                </div>
+              </div>
+            </div>
+            <!-- Orders -->
+            <div class="customer-tab" id="cust-tab-orders">
+              <div class="glass-panel" style="padding:1.5rem;">
+                <h3>Order History</h3>
+                <div id="orderHistoryList"></div>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="customer-tab" id="cust-tab-profile">
+              <div class="glass-panel profile-panel">
+                <h3>Profile Settings</h3>
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" id="profileName" />
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" id="profileEmail" />
+                </div>
+                <button class="btn btn-gold" id="updateProfileBtn">Update Profile</button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- ===== KITCHEN DASHBOARD ===== -->
+    <div id="kitchen-dashboard" class="page dashboard-page">
+      <div class="dashboard-layout">
+        <aside class="sidebar glass-panel">
+          <div class="sidebar-brand"><span class="logo-icon">✦</span> Kitchen</div>
+          <nav class="sidebar-nav">
+            <a href="#" class="active" data-kitchen-tab="new"><i data-lucide="inbox"></i> New Orders</a>
+            <a href="#" data-kitchen-tab="preparing"><i data-lucide="flame"></i> Preparing</a>
+            <a href="#" data-kitchen-tab="ready"><i data-lucide="check-circle"></i> Ready</a>
+            <a href="#" data-kitchen-tab="completed"><i data-lucide="archive"></i> Completed</a>
+            <a href="#" data-kitchen-tab="analytics"><i data-lucide="bar-chart-2"></i> Analytics</a>
+          </nav>
+          <button class="btn btn-outline logout-btn" id="kitchenLogout">Log out</button>
+        </aside>
+        <main class="dashboard-main">
+          <header class="dashboard-header glass-panel">
+            <div class="header-left">
+              <h2>Kitchen Display System</h2>
+              <p id="kitchenDateTime"></p>
+            </div>
+            <div class="header-right">
+              <button class="icon-btn" id="kitchenNotificationBtn"><i data-lucide="bell"></i></button>
+            </div>
+          </header>
+          <div id="kitchen-tab-content" class="tab-content">
+            <!-- New Orders -->
+            <div class="kitchen-tab active" id="kitchen-tab-new">
+              <div class="order-cards-grid" id="newOrdersGrid"></div>
+            </div>
+            <!-- Preparing -->
+            <div class="kitchen-tab" id="kitchen-tab-preparing">
+              <div class="order-cards-grid" id="preparingOrdersGrid"></div>
+            </div>
+            <!-- Ready -->
+            <div class="kitchen-tab" id="kitchen-tab-ready">
+              <div class="order-cards-grid" id="readyOrdersGrid"></div>
+            </div>
+            <!-- Completed -->
+            <div class="kitchen-tab" id="kitchen-tab-completed">
+              <div class="order-cards-grid" id="completedOrdersGrid"></div>
+            </div>
+            <!-- Analytics -->
+            <div class="kitchen-tab" id="kitchen-tab-analytics">
+              <div class="analytics-cards glass-panel">
+                <div class="stat-card">
+                  <h4>Total Prepared</h4>
+                  <p id="kpiTotalPrepared">0</p>
+                </div>
+                <div class="stat-card">
+                  <h4>Pending</h4>
+                  <p id="kpiPending">0</p>
+                </div>
+                <div class="stat-card">
+                  <h4>Completed</h4>
+                  <p id="kpiCompleted">0</p>
+                </div>
+                <div class="stat-card">
+                  <h4>Avg. Prep Time</h4>
+                  <p id="kpiAvgTime">0 min</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- ===== ADMIN / BOSS DASHBOARD ===== -->
+    <div id="admin-dashboard" class="page dashboard-page">
+      <div class="dashboard-layout">
+        <aside class="sidebar glass-panel">
+          <div class="sidebar-brand"><span class="logo-icon">✦</span> Admin</div>
+          <nav class="sidebar-nav">
+            <a href="#" class="active" data-admin-tab="overview"><i data-lucide="layout-dashboard"></i> Overview</a>
+            <a href="#" data-admin-tab="menu"><i data-lucide="book-open"></i> Menu</a>
+            <a href="#" data-admin-tab="orders"><i data-lucide="clipboard-list"></i> Orders</a>
+            <a href="#" data-admin-tab="staff"><i data-lucide="users"></i> Staff</a>
+            <a href="#" data-admin-tab="customers"><i data-lucide="user-check"></i> Customers</a>
+            <a href="#" data-admin-tab="finance"><i data-lucide="dollar-sign"></i> Finance</a>
+            <a href="#" data-admin-tab="settings"><i data-lucide="settings"></i> Settings</a>
+            <a href="#" data-admin-tab="reservations"><i data-lucide="calendar"></i> Reservations</a>
+          </nav>
+          <button class="btn btn-outline logout-btn" id="adminLogout">Log out</button>
+        </aside>
+        <main class="dashboard-main">
+          <header class="dashboard-header glass-panel">
+            <div class="header-left">
+              <h2>Boss Dashboard</h2>
+              <p id="adminDateTime"></p>
+            </div>
+            <div class="header-right">
+              <button class="icon-btn" id="adminNotificationBtn"><i data-lucide="bell"></i></button>
+            </div>
+          </header>
+          <div id="admin-tab-content" class="tab-content">
+            <!-- Overview -->
+            <div class="admin-tab active" id="admin-tab-overview">
+              <div class="overview-stats">
+                <div class="stat-card"><h4>Total Sales</h4><p id="adminTotalSales">$0.00</p></div>
+                <div class="stat-card"><h4>Total Orders</h4><p id="adminTotalOrders">0</p></div>
+                <div class="stat-card"><h4>Total Customers</h4><p id="adminTotalCustomers">0</p></div>
+                <div class="stat-card"><h4>Pending Orders</h4><p id="adminPendingOrders">0</p></div>
+                <div class="stat-card"><h4>Completed</h4><p id="adminCompletedOrders">0</p></div>
+                <div class="stat-card"><h4>Today’s Revenue</h4><p id="adminTodayRevenue">$0.00</p></div>
+              </div>
+              <div class="chart-container glass-panel">
+                <canvas id="salesChart"></canvas>
+              </div>
+            </div>
+            <!-- Menu Management -->
+            <div class="admin-tab" id="admin-tab-menu">
+              <div class="glass-panel" style="padding:1.5rem;">
+                <h3>Menu Items</h3>
+                <button class="btn btn-gold" id="addDishBtn"><i data-lucide="plus"></i> Add Dish</button>
+                <div id="adminMenuList" class="admin-menu-list"></div>
+              </div>
+            </div>
+            <!-- Orders Management -->
+            <div class="admin-tab" id="admin-tab-orders">
+              <div class="glass-panel" style="padding:1.5rem;">
+                <h3>All Orders</h3>
+                <div class="filter-row">
+                  <input type="text" id="adminOrderSearch" placeholder="Search orders..." />
+                  <select id="adminOrderStatusFilter">
+                    <option value="all">All Status</option>
+                    <option value="new">New</option>
+                    <option value="preparing">Preparing</option>
+                    <option value="ready">Ready</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                  </select>
+                </div>
+                <div id="adminOrdersList"></div>
+              </div>
+            </div>
+            <!-- Staff Management -->
+            <div class="admin-tab" id="admin-tab-staff">
+              <div class="glass-panel" style="padding:1.5rem;">
+                <h3>Kitchen Staff</h3>
+                <button class="btn btn-gold" id="addStaffBtn"><i data-lucide="user-plus"></i> Add Staff</button>
+                <div id="adminStaffList"></div>
+              </div>
+            </div>
+            <!-- Customers -->
+            <div class="admin-tab" id="admin-tab-customers">
+              <div class="glass-panel" style="padding:1.5rem;">
+                <h3>Registered Customers</h3>
+                <div id="adminCustomerList"></div>
+              </div>
+            </div>
+            <!-- Finance -->
+            <div class="admin-tab" id="admin-tab-finance">
+              <div class="glass-panel" style="padding:1.5rem;">
+                <h3>Financial Summary</h3>
+                <div class="finance-grid">
+                  <div class="stat-card"><h4>Daily Revenue</h4><p id="financeDaily">$0.00</p></div>
+                  <div class="stat-card"><h4>Weekly Revenue</h4><p id="financeWeekly">$0.00</p></div>
+                  <div class="stat-card"><h4>Monthly Revenue</h4><p id="financeMonthly">$0.00</p></div>
+                  <div class="stat-card"><h4>Total Sales</h4><p id="financeTotal">$0.00</p></div>
+                </div>
+                <button class="btn btn-outline" id="downloadReportBtn"><i data-lucide="download"></i> Download Report</button>
+              </div>
+            </div>
+            <!-- Settings -->
+            <div class="admin-tab" id="admin-tab-settings">
+              <div class="glass-panel" style="padding:1.5rem;">
+                <h3>Restaurant Settings</h3>
+                <div class="form-group"><label>Restaurant Name</label><input type="text" id="settingName" value="Éclat" /></div>
+                <div class="form-group"><label>Contact</label><input type="text" id="settingContact" value="+33 1 42 60 38 30" /></div>
+                <div class="form-group"><label>Opening Hours</label><input type="text" id="settingHours" value="Mon–Sun: 12:00 – 22:30" /></div>
+                <div class="form-group"><label>Delivery Charge</label><input type="number" id="settingDelivery" value="5" /></div>
+                <div class="form-group"><label>Tax Rate (%)</label><input type="number" id="settingTax" value="10" /></div>
+                <div class="form-group"><label>Address</label><input type="text" id="settingAddress" value="12 Rue de la Paix, 75002 Paris" /></div>
+                <button class="btn btn-gold" id="saveSettingsBtn">Save Settings</button>
+              </div>
+            </div>
+            <!-- Reservations -->
+            <div class="admin-tab" id="admin-tab-reservations">
+              <div class="glass-panel" style="padding:1.5rem;">
+                <h3>Table Reservations</h3>
+                <div id="adminReservationsList"></div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link to script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
